@@ -2,11 +2,18 @@ name: Verify Issue Workflow
 
 on:
   issues:
-    types: [opened]
+    types: [opened, closed]
 
 jobs:
-  verify_issue:
+  verify_opened_issue:
+    if: github.event.action == 'opened'
     runs-on: ubuntu-latest
     steps:
-      - name: Get Issue Informations
+      - name: Get Opened Issue Informations
         run: echo "Github Env ${{ toJSON(github.event) }}"
+  verify_closed_issue:
+    if: github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Closed Issue Informations
+        run: echo "GitHub Env ${{toJSON(github.event)}}"
