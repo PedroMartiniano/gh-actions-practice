@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get Issue Informations
-        run: echo "Github Env ${{ toJSON(github) }}"
+        run: echo "Github Env ${{ toJSON(github.event) }}"
