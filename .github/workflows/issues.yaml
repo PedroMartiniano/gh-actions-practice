@@ -1,0 +1,12 @@
+name: Verify Issue Workflow
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  verify_issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Issue Informations
+        run: echo "Github Env ${{ toJSON(github) }}"
