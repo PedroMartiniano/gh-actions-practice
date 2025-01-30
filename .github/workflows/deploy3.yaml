@@ -5,7 +5,7 @@ on:
     types:
       - opened
     branches:
-      - develop-test
+      - main
   workflow_dispatch:
 
 jobs:
